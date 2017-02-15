@@ -2,8 +2,11 @@
 
 {% block content %}
     <h1>New post</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+
+		<form action="{% url 'post_edit' pk=post.pk  %}" method="post" enctype="multipart/form-data">{% csrf_token %}	
+			
         {{ form.as_p }}
+        <input type="submit" class="btn" value="upload_image" name="upload image">
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}
